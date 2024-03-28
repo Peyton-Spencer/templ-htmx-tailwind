@@ -1,6 +1,6 @@
-# Project templ-go-std
+# templ-go-std
 
-One Paragraph of project description goes here
+Templ and HTMX are all the rage! This template has your favorites: Go, Templ, HTMX, TailwindCSS, and Justfile.
 
 ## Getting Started
 
