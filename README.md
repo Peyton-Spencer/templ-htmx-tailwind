@@ -27,7 +27,7 @@ live reload the application
 ```bash
 just watch
 ```
-Open your browser to http://localhost:8080
+Open your browser to http://localhost:3000
 
 run the test suite
 ```bash
