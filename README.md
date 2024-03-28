@@ -1,6 +1,6 @@
-# templ-go-std
+# templ-htmx-tailwind
 
-Templ and HTMX are all the rage! This template has your favorites: Go, Templ, HTMX, TailwindCSS, and Justfile.
+Templ, HTMX and TailwindCSS are all the rage! This template includes my favorite dev niceties and easy breezy installation.
 
 ## Getting Started
 Click "Use Template" in the top right to automatically fork this into your Github account.
