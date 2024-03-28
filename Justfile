@@ -4,7 +4,7 @@
 alias w := watch
 
 # Build the binary
-@build: (_install tailwindcss templ go)
+@build: (_install tailwindcss templ)
 	./scripts/build.sh
 alias b := build
 
@@ -13,7 +13,7 @@ start:
 	./main
 
 # Test the application
-@test: (_install go gum)
+@test: (_install gum)
 	gum log -l info "Testing..."
 	go test ./tests -v
 

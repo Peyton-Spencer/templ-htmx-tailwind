@@ -8,7 +8,7 @@ NC="\033[0m" # No Color
 
 install_dependency() {
     if command -v "$1" &>/dev/null; then
-        # echo -e "${GREEN}$1 is already installed${NC}"
+        echo -e "${GREEN}✅ $1${NC}"
         return 0
     fi
     if ! command -v brew &>/dev/null; then
@@ -65,7 +65,7 @@ install_dependency() {
 }
 
 if [[ "$#" -eq 0 ]]; then
-    echo -e "${RED}Please provide at least one dependency to install.${NC}"
+    echo -e "${RED}❌ Please provide at least one dependency to install.${NC}"
     exit 1
 fi
 
