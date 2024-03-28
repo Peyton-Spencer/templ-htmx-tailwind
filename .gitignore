@@ -27,3 +27,7 @@ tmp/
 
 # Project build
 main
+
+# Generated & downloaded files
+cmd/web/static/css/output.css
+cmd/web/static/js/htmx.min.js

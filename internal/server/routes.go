@@ -1,16 +1,16 @@
 package server
 
 import (
-	"encoding/json"
 	"log"
 	"net/http"
 
 	"fmt"
 	"time"
 
+	"templ-go-std/cmd/web"
+
 	"github.com/a-h/templ"
 	"nhooyr.io/websocket"
-	"templ-go-std/cmd/web"
 )
 
 func (s *Server) RegisterRoutes() http.Handler {
@@ -23,7 +23,7 @@ func (s *Server) RegisterRoutes() http.Handler {
 	mux.HandleFunc("/websocket", s.websocketHandler)
 
 	fileServer := http.FileServer(http.FS(web.Files))
-	mux.Handle("/js/", fileServer)
+	mux.Handle("/static/", fileServer)
 	mux.Handle("/web", templ.Handler(web.HelloForm()))
 	mux.HandleFunc("/hello", web.HelloWebHandler)
 
@@ -33,23 +33,11 @@ func (s *Server) RegisterRoutes() http.Handler {
 func (s *Server) HelloWorldHandler(w http.ResponseWriter, r *http.Request) {
 	resp := make(map[string]string)
 	resp["message"] = "Hello World"
-
-	jsonResp, err := json.Marshal(resp)
-	if err != nil {
-		log.Fatalf("error handling JSON marshal. Err: %v", err)
-	}
-
-	_, _ = w.Write(jsonResp)
+	writeJson(w, resp)	
 }
 
 func (s *Server) healthHandler(w http.ResponseWriter, r *http.Request) {
-	jsonResp, err := json.Marshal(s.db.Health())
-
-	if err != nil {
-		log.Fatalf("error handling JSON marshal. Err: %v", err)
-	}
-
-	_, _ = w.Write(jsonResp)
+	writeJson(w, s.db.Health())
 }
 
 func (s *Server) websocketHandler(w http.ResponseWriter, r *http.Request) {
