@@ -3,10 +3,15 @@
 Templ and HTMX are all the rage! This template has your favorites: Go, Templ, HTMX, TailwindCSS, and Justfile.
 
 ## Getting Started
+Click "Use Template" in the top right to automatically fork this into your Github account.
 
+Or, just clone mine directly:
 ```bash
 git clone git@github.com:Peyton-Spencer/templ-go-std.git
+```
 
+Install everything:
+```bash
 ./install.sh
 ```
 
