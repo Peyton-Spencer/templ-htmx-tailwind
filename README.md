@@ -4,46 +4,45 @@ One Paragraph of project description goes here
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-## MakeFile
-
-run all make commands with clean tests
 ```bash
-make all build
+git clone git@github.com:Peyton-Spencer/templ-go-std.git
+
+./install.sh
 ```
 
-build the application
-```bash
-make build
-```
 
-run the application
-```bash
-make run
-```
+## Commands
 
-Create DB container
+List the commands
 ```bash
-make docker-run
-```
-
-Shutdown DB container
-```bash
-make docker-down
+just -l
 ```
 
 live reload the application
 ```bash
-make watch
+just watch
 ```
 
 run the test suite
 ```bash
-make test
+just test
+```
+
+Build the production binary
+```bash
+just build
+```
+
+Run the production binary
+```bash
+just start
+```
+or
+```bash
+./main
 ```
 
 clean up binary from the last build
 ```bash
-make clean
+just clean
 ```

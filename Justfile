@@ -1,25 +1,28 @@
 # Live Reload
-@watch: (install air)
+@watch: (_install air)
 	air
+alias w := watch
 
-# Run the application
-run: (install go)
-	go run cmd/api/main.go
-
-@build: (install tailwindcss templ go)
+# Build the binary
+@build: (_install tailwindcss templ go)
 	./scripts/build.sh
+alias b := build
+
+# Start the binary
+start:
+	./main
 
 # Test the application
-@test: (install go gum)
+@test: (_install go gum)
 	gum log -l info "Testing..."
 	go test ./tests -v
 
 # Clean the binary
 @clean:
-	gum log -l info echo "Cleaning..."
+	gum log -l info "Cleaning..."
 	rm -f main
 
-@install +args:
+@_install +args:
 	./scripts/install-deps.sh {{args}}
 
 air := 'air'
